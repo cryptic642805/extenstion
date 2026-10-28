@@ -1,13 +1,19 @@
 class Solution:
-    def resultArray(self, nums):
-        arr1 = [nums[0]]
-        arr2 = [nums[1]]
+    def maxProfit(self, prices: list[int]) -> int:
+        min_price=prices[0]
+        max_profit=0
 
-        for i in range(2, len(nums)):
-            if arr1[-1] > arr2[-1]:
-                arr1.append(nums[i])
-            else:
-                arr2.append(nums[i])
+        for price in prices:
+            if price<min_price:
+                min_price=price
 
-        return arr1 + arr2
-        
+            profit=price-min_price
+
+            if profit>max_profit:
+                max_profit=profit
+
+        return max_profit
+
+
+
+
