@@ -1,19 +1,12 @@
 class Solution:
-    def maxProfit(self, prices: list[int]) -> int:
-        min_price=prices[0]
-        max_profit=0
+    def findContentChildren(self, g: list[int], s: list[int]) -> int:
+        g.sort()
+        s.sort()
+        i=0
+        j=0
 
-        for price in prices:
-            if price<min_price:
-                min_price=price
-
-            profit=price-min_price
-
-            if profit>max_profit:
-                max_profit=profit
-
-        return max_profit
-
-
-
-
+        while i<len(g) and j<len(s):
+            if s[j]>=g[i]:
+                i+=1
+            j+=1
+        return i
